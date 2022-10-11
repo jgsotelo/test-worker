@@ -29,7 +29,7 @@ public class ExceptionHandlerAdvice {
 
     @ExceptionHandler(value = {DataIntegrityViolationException.class})
     @ResponseStatus(value = HttpStatus.BAD_REQUEST)
-    public ErrorMessage errorData(DataIntegrityViolationException ex, HttpHeaders headers, HttpStatus status) {
+    public ErrorMessage errorData(DataIntegrityViolationException ex) {
         return ErrorMessage.builder()
                 .status(HttpStatus.BAD_REQUEST.value())
                 .result(HttpStatus.BAD_REQUEST.getReasonPhrase())
